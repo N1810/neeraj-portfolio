@@ -14,7 +14,7 @@ export const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
 
-  const emailAddress = 'sharmaneeraj1810@gmail.com';
+  const emailAddress = 'neerajkmr.dev@gmail.com';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
@@ -50,7 +50,7 @@ export const Contact: React.FC = () => {
       }
     } catch {
       setStatus('error');
-      setStatusMessage('Network connection error. Please email directly at sharmaneeraj1810@gmail.com.');
+      setStatusMessage('Network connection error. Please email directly at neerajkmr.dev@gmail.com.');
     }
   };
 

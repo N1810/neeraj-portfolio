@@ -24,7 +24,7 @@ export const socialLinksData = [
   },
   {
     name: 'Email',
-    href: 'mailto:sharmaneeraj1810@gmail.com',
+    href: 'mailto:neerajkmr.dev@gmail.com',
     icon: Mail,
     label: 'Email Neeraj Kumar directly',
   },

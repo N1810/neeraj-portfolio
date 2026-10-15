@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     const port = Number(process.env.SMTP_PORT) || 465;
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
-    const recipient = process.env.CONTACT_RECEIVER_EMAIL || 'sharmaneeraj1810@gmail.com';
+    const recipient = process.env.CONTACT_RECEIVER_EMAIL || 'neerajkmr.dev@gmail.com';
 
     if (!user || !pass) {
       console.error('[SMTP Config Error] Missing SMTP_USER or SMTP_PASS environment variables.');
