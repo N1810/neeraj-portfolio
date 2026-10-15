@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --terracotta: #B76E4F;
+  --terracotta-deep: #965239;
+  --cream: #F8F1E8;
+  --beige: #EAD8C8;
+  --peach: #F2E4D8;
+  --olive: #A6A58D;
+  --sage: #D9DDCB;
+  --text-dark: #29251F;
+  --text-secondary: #6E675F;
+  --surface-white: #FFFCF7;
+
+  --background: var(--cream);
+  --foreground: var(--text-dark);
+}
+
+@theme {
+  --color-terracotta: #B76E4F;
+  --color-terracotta-deep: #965239;
+  --color-cream: #F8F1E8;
+  --color-beige: #EAD8C8;
+  --color-peach: #F2E4D8;
+  --color-olive: #A6A58D;
+  --color-sage: #D9DDCB;
+  --color-text-dark: #29251F;
+  --color-text-secondary: #6E675F;
+  --color-surface-white: #FFFCF7;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  font-family: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle editorial warm grain & paper background */
+.editorial-bg {
+  background-color: #F8F1E8;
+  background-image: radial-gradient(#EAD8C8 0.75px, transparent 0.75px), radial-gradient(#F2E4D8 0.75px, #F8F1E8 0.75px);
+  background-size: 30px 30px;
+  background-position: center top, calc(50% + 15px) 15px;
+}
+
+/* Custom selection */
+::selection {
+  background-color: #F2E4D8;
+  color: #965239;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F1E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #EAD8C8;
+  border-radius: 9999px;
+  border: 2px solid #F8F1E8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B76E4F;
+}
+
+/* Editorial Serif Headings */
+.font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Focus styles for keyboard accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #B76E4F;
+  outline-offset: 2px;
+}
