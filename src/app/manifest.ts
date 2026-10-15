@@ -2,9 +2,10 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Neeraj Kumar — Full Stack Developer Portfolio',
+    name: 'Neeraj Kumar | Full Stack Developer & Software Engineer Portfolio',
     short_name: 'Neeraj Kumar',
-    description: 'Personal portfolio of Neeraj Kumar, Full Stack Developer.',
+    description:
+      'Official portfolio of Neeraj Kumar, Full Stack Developer & Software Engineer building modern web apps with React, Next.js, TypeScript, and Node.js.',
     start_url: '/',
     display: 'standalone',
     background_color: '#F8F1E8',

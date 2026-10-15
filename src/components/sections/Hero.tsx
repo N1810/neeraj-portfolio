@@ -56,9 +56,7 @@ export const Hero: React.FC = () => {
 
             {/* Description */}
             <p className="text-base sm:text-lg text-[#6E675F] max-w-xl leading-relaxed mb-8">
-              I build modern, scalable web applications with clean code and great user experiences.
-              I enjoy turning ideas into real products and solving complex problems through simple,
-              efficient solutions.
+              Full Stack Developer &amp; Software Engineer building high-performance, scalable web applications with React, Next.js, TypeScript, and Node.js. Delivering clean architecture, robust APIs, and production solutions from New Delhi, India.
             </p>
 
             {/* CTAs */}
