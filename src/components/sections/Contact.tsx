@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, Check, Copy, MessageSquare, Mail } from 'lucide-react';
+import { Send, Check, Copy, MessageSquare, Mail, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Button } from '@/components/ui/Button';
 import { SocialLinks } from '@/components/ui/SocialLinks';
 import { CardCornerBrackets } from '@/components/ui/CornerAccents';
 
@@ -12,6 +11,8 @@ export const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
   const emailAddress = 'sharmaneeraj1810@gmail.com';
 
@@ -21,13 +22,36 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project Inquiry from ${name || 'Portfolio Visitor'}`);
-    const body = encodeURIComponent(
-      `Hello Neeraj,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nSent via neerajkumar.dev`
-    );
-    window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+    setStatus('submitting');
+    setStatusMessage('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus('success');
+        setStatusMessage(data.message || 'Your message has been sent successfully! Neeraj will get back to you soon.');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setStatus('error');
+        setStatusMessage(data.error || 'Failed to send message. Please try again or email directly.');
+      }
+    } catch {
+      setStatus('error');
+      setStatusMessage('Network connection error. Please email directly at sharmaneeraj1810@gmail.com.');
+    }
   };
 
   return (
@@ -106,6 +130,41 @@ export const Contact: React.FC = () => {
                 </h3>
               </div>
 
+              {/* Status Notifications */}
+              {status === 'success' && (
+                <div
+                  className="mb-5 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm flex items-start gap-3 shadow-xs animate-in fade-in duration-300"
+                  role="status"
+                >
+                  <CheckCircle2 size={18} className="text-emerald-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">{statusMessage}</p>
+                    <p className="text-[11px] text-emerald-700 mt-0.5">
+                      Thank you for reaching out. I usually reply within 24 hours.
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div
+                  className="mb-5 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm flex items-start gap-3 shadow-xs animate-in fade-in duration-300"
+                  role="alert"
+                >
+                  <AlertCircle size={18} className="text-rose-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold">{statusMessage}</p>
+                    <p className="text-[11px] text-rose-700 mt-0.5">
+                      You can also email me directly at{' '}
+                      <a href={`mailto:${emailAddress}`} className="underline font-semibold">
+                        {emailAddress}
+                      </a>
+                      .
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -119,10 +178,11 @@ export const Contact: React.FC = () => {
                       id="contact-name"
                       type="text"
                       required
+                      disabled={status === 'submitting'}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Jane Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-[#F8F1E8] border border-[#EAD8C8] text-[#29251F] text-sm focus:outline-none focus:border-[#B76E4F] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#F8F1E8] border border-[#EAD8C8] text-[#29251F] text-sm focus:outline-none focus:border-[#B76E4F] transition-colors disabled:opacity-60"
                     />
                   </div>
 
@@ -137,10 +197,11 @@ export const Contact: React.FC = () => {
                       id="contact-email"
                       type="email"
                       required
+                      disabled={status === 'submitting'}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="jane@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-[#F8F1E8] border border-[#EAD8C8] text-[#29251F] text-sm focus:outline-none focus:border-[#B76E4F] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-[#F8F1E8] border border-[#EAD8C8] text-[#29251F] text-sm focus:outline-none focus:border-[#B76E4F] transition-colors disabled:opacity-60"
                     />
                   </div>
                 </div>
@@ -156,26 +217,36 @@ export const Contact: React.FC = () => {
                     id="contact-message"
                     rows={4}
                     required
+                    disabled={status === 'submitting'}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell me about your product, project timeline, or questions..."
-                    className="w-full px-4 py-3 rounded-xl bg-[#F8F1E8] border border-[#EAD8C8] text-[#29251F] text-sm focus:outline-none focus:border-[#B76E4F] transition-colors resize-y"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F8F1E8] border border-[#EAD8C8] text-[#29251F] text-sm focus:outline-none focus:border-[#B76E4F] transition-colors resize-y disabled:opacity-60"
                   />
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
                   <p className="text-xs text-[#6E675F]">
-                    Opens your email client with pre-filled details.
+                    Dispatched directly to Neeraj&apos;s inbox via secure SMTP.
                   </p>
 
-                  <Button
+                  <button
                     type="submit"
-                    variant="primary"
-                    size="md"
-                    icon={<Send size={15} />}
+                    disabled={status === 'submitting'}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200 bg-[#B76E4F] text-[#FFFCF7] hover:bg-[#965239] shadow-xs hover:shadow-md active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shrink-0"
                   >
-                    Send a Message
-                  </Button>
+                    {status === 'submitting' ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={15} />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </button>
                 </div>
               </form>
             </div>
