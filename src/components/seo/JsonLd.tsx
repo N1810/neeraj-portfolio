@@ -45,7 +45,8 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         },
         alumniOf: {
           '@type': 'EducationalOrganization',
-          name: 'Dr. A.P.J. Abdul Kalam Technical University (AKTU)',
+          name: 'Indira Gandhi National Open University (IGNOU)',
+          url: 'http://www.ignou.ac.in',
         },
         knowsAbout: [
           'Full Stack Development',
