@@ -211,3 +211,52 @@ export const CardCornerCrosshairs: React.FC<{
     </div>
   );
 };
+
+/**
+ * Architectural Corner L-Brackets for Cards and Containers
+ * Adds four delicate 90-degree corner brackets to frame cards.
+ */
+export const CardCornerBrackets: React.FC<{
+  className?: string;
+  size?: number;
+  color?: string;
+}> = ({
+  className = '',
+  size = 14,
+  color = 'text-[#B76E4F]/40',
+}) => {
+  return (
+    <div
+      className={`absolute inset-0 pointer-events-none select-none overflow-hidden ${className}`}
+      aria-hidden="true"
+    >
+      {/* Top-Left Bracket */}
+      <div className={`absolute top-2.5 left-2.5 ${color}`}>
+        <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke="currentColor">
+          <path d="M2 14V2H14" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+
+      {/* Top-Right Bracket */}
+      <div className={`absolute top-2.5 right-2.5 ${color}`}>
+        <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke="currentColor">
+          <path d="M14 14V2H2" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+
+      {/* Bottom-Left Bracket */}
+      <div className={`absolute bottom-2.5 left-2.5 ${color}`}>
+        <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke="currentColor">
+          <path d="M2 2V14H14" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+
+      {/* Bottom-Right Bracket */}
+      <div className={`absolute bottom-2.5 right-2.5 ${color}`}>
+        <svg width={size} height={size} viewBox="0 0 16 16" fill="none" stroke="currentColor">
+          <path d="M14 2V14H2" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+    </div>
+  );
+};

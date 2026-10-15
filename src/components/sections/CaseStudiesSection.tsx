@@ -12,10 +12,12 @@ import {
   ArrowUpRight,
   AlertCircle,
   CheckCircle2,
+  Layers,
 } from 'lucide-react';
 import { caseStudies, CaseStudy } from '@/data/case-studies';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CaseStudyCard } from '@/components/case-studies/CaseStudyCard';
+import { CardCornerBrackets } from '@/components/ui/CornerAccents';
 import { GithubIcon } from '@/components/ui/Icons';
 import { cn } from '@/lib/utils';
 
@@ -45,6 +47,7 @@ export const CaseStudiesSection: React.FC = () => {
         {/* Section Heading & Link */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 md:mb-12">
           <SectionHeading
+            icon={<Layers size={13} />}
             eyebrow="SELECTED CASE STUDIES"
             title="From problem to product."
             description="An inside look at the problems I solve, the decisions I make, and the products I build."
@@ -117,8 +120,9 @@ export const CaseStudiesSection: React.FC = () => {
                     handlePrev();
                   }
                 }}
-                className="w-full rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] overflow-hidden shadow-lg flex flex-col cursor-grab active:cursor-grabbing touch-pan-y"
+                className="relative w-full rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] overflow-hidden shadow-lg flex flex-col cursor-grab active:cursor-grabbing touch-pan-y"
               >
+                <CardCornerBrackets color="text-[#B76E4F]/25" size={14} />
                 {/* Visual Thumbnail */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2E4D8]/60 border-b border-[#EAD8C8]">
                   <Image

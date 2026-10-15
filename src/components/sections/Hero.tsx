@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Download, ArrowDown, Sparkles } from 'lucide-react';
+import { Download, ArrowDown, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { SocialLinks } from '@/components/ui/SocialLinks';
 import { CardCornerCrosshairs } from '@/components/ui/CornerAccents';
@@ -36,9 +36,12 @@ export const Hero: React.FC = () => {
             {/* Eyebrow */}
             <div className="flex items-center gap-2 mb-3">
               <span className="w-8 h-[1.5px] bg-[#B76E4F]" aria-hidden="true" />
-              <span className="text-xs uppercase font-bold tracking-[0.25em] text-[#965239]">
-                FULL STACK DEVELOPER
-              </span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFCF7] border border-[#EAD8C8] shadow-2xs">
+                <Code2 size={13} className="text-[#B76E4F]" />
+                <span className="text-[11px] sm:text-xs uppercase font-bold tracking-[0.18em] text-[#965239]">
+                  FULL STACK DEVELOPER
+                </span>
+              </div>
             </div>
 
             {/* Main Heading */}

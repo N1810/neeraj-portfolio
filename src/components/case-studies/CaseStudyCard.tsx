@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowUpRight, ArrowRight, ExternalLink, Wrench, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { GithubIcon } from '@/components/ui/Icons';
 import { CaseStudy } from '@/data/case-studies';
+import { CardCornerBrackets } from '@/components/ui/CornerAccents';
 import { cn } from '@/lib/utils';
 
 interface CaseStudyCardProps {
@@ -25,6 +26,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           className
         )}
       >
+        <CardCornerBrackets color="text-[#B76E4F]/25" size={14} />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
           {/* Visual Side */}
           <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto overflow-hidden bg-[#F2E4D8]/60 border-b lg:border-b-0 lg:border-r border-[#EAD8C8]">
@@ -154,10 +156,11 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   return (
     <article
       className={cn(
-        'group flex flex-col rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] overflow-hidden shadow-xs hover:shadow-lg hover:border-[#B76E4F]/50 transition-all duration-300',
+        'group relative flex flex-col rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] overflow-hidden shadow-xs hover:shadow-lg hover:border-[#B76E4F]/50 transition-all duration-300',
         className
       )}
     >
+      <CardCornerBrackets color="text-[#B76E4F]/25" size={14} />
       {/* Thumbnail */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2E4D8]/60 border-b border-[#EAD8C8]">
         <Image

@@ -8,11 +8,13 @@ import {
   ExternalLink,
   ArrowUpRight,
   Sparkles,
+  FolderGit2,
 } from 'lucide-react';
 import Image from 'next/image';
 import { featuredProjects, Project } from '@/data/projects';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GithubIcon } from '@/components/ui/Icons';
+import { CardCornerBrackets, CardCornerCrosshairs } from '@/components/ui/CornerAccents';
 import { cn } from '@/lib/utils';
 
 const filterCategories = [
@@ -253,6 +255,7 @@ export const FeaturedProjects: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-6 sm:mb-8">
           <SectionHeading
+            icon={<FolderGit2 size={13} className="text-[#B76E4F]" />}
             eyebrow="SELECTED WORK"
             title="Some things I've built"
             description="A mix of freelance, personal, and open-source projects."
@@ -338,6 +341,9 @@ export const FeaturedProjects: React.FC = () => {
               palette.borderColor
             )}
           >
+            {/* Architectural Corner L-Brackets */}
+            <CardCornerBrackets color="text-current opacity-20" size={16} />
+
             {/* Background watermark icon */}
             <div
               className="absolute -right-12 -bottom-12 w-64 h-64 sm:w-96 sm:h-96 opacity-[0.035] pointer-events-none select-none"
@@ -366,6 +372,7 @@ export const FeaturedProjects: React.FC = () => {
                   className="w-full lg:col-span-6 order-1 lg:order-2"
                 >
                   <div className="relative aspect-[16/10] sm:aspect-[16/10] w-full rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden border border-black/10 shadow-lg sm:shadow-xl bg-black/5 group">
+                    <CardCornerCrosshairs color="text-white/60" size={12} />
                     {currentProject.imageUrl ? (
                       <Image
                         src={currentProject.imageUrl}

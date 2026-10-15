@@ -1,13 +1,15 @@
 import React from 'react';
-import { Calendar, Building2, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
+import { Calendar, Building2, MapPin, CheckCircle, ArrowRight, Briefcase } from 'lucide-react';
 import { experiences } from '@/data/experience';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { CardCornerBrackets } from '@/components/ui/CornerAccents';
 
 export const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-20 md:py-32 relative bg-[#F8F1E8]/60 border-t border-[#EAD8C8]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          icon={<Briefcase size={13} className="text-[#B76E4F]" />}
           eyebrow="CAREER &amp; TRACK RECORD"
           title="My professional journey"
           description="Real-world engineering experience developing production applications, optimizing performance, and mentoring developers."
@@ -22,7 +24,8 @@ export const Experience: React.FC = () => {
                 aria-hidden="true"
               />
 
-              <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/50 hover:shadow-md transition-all duration-300">
+              <div className="relative p-6 sm:p-8 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/50 hover:shadow-md transition-all duration-300 overflow-hidden">
+                <CardCornerBrackets color="text-[#B76E4F]/25" size={14} />
                 {/* Header Bar */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                   <div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { Music, Compass, Sparkles, Guitar, BookOpen } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { CardCornerCrosshairs } from '@/components/ui/CornerAccents';
 
 const interests = [
   {
@@ -39,6 +40,7 @@ export const BeyondCode: React.FC = () => {
           {/* Text & Interests list */}
           <div className="lg:col-span-7">
             <SectionHeading
+              icon={<Compass size={13} className="text-[#B76E4F]" />}
               eyebrow="LIFE &amp; INSPIRATION"
               title="Beyond Code"
               description="&ldquo;Good code, good music, good places, good life.&rdquo;"
@@ -56,8 +58,9 @@ export const BeyondCode: React.FC = () => {
                 return (
                   <div
                     key={item.title}
-                    className="p-4 rounded-2xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/40 transition-colors"
+                    className="relative p-4 rounded-2xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/40 transition-colors overflow-hidden group"
                   >
+                    <CardCornerCrosshairs color="text-[#B76E4F]/20" size={10} />
                     <div className="flex items-center gap-3 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-[#F2E4D8] text-[#965239] flex items-center justify-center shrink-0">
                         <Icon size={16} />
@@ -78,6 +81,7 @@ export const BeyondCode: React.FC = () => {
           {/* Visual col */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border border-[#EAD8C8] bg-[#FFFCF7] shadow-xl aspect-[4/3] group">
+              <CardCornerCrosshairs color="text-[#FFFCF7]/70" size={14} />
               <Image
                 src="/images/beyond-code.jpg"
                 alt="Acoustic guitar and vinyl records bathed in warm natural light against terracotta wall"

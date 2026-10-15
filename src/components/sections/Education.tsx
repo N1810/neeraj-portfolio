@@ -2,12 +2,14 @@ import React from 'react';
 import { GraduationCap, Calendar, BookOpen } from 'lucide-react';
 import { educationList } from '@/data/experience';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { CardCornerBrackets } from '@/components/ui/CornerAccents';
 
 export const Education: React.FC = () => {
   return (
     <section className="py-16 md:py-24 relative border-t border-[#EAD8C8]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          icon={<GraduationCap size={13} className="text-[#B76E4F]" />}
           eyebrow="ACADEMIC BACKGROUND"
           title="Education &amp; Foundations"
           description="Formal degree coursework focusing on software engineering principles, distributed systems, and computer applications."
@@ -17,8 +19,9 @@ export const Education: React.FC = () => {
           {educationList.map((edu) => (
             <div
               key={edu.id}
-              className="p-6 sm:p-7 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="relative p-6 sm:p-7 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group"
             >
+              <CardCornerBrackets color="text-[#B76E4F]/25" size={12} />
               <div>
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="w-11 h-11 rounded-2xl bg-[#F2E4D8] text-[#965239] flex items-center justify-center shrink-0 border border-[#EAD8C8]">

@@ -8,9 +8,11 @@ import {
   ShoppingBag,
   Wrench,
   CheckCircle2,
+  Cpu,
 } from 'lucide-react';
 import { skillCategories } from '@/data/skills';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { CardCornerCrosshairs } from '@/components/ui/CornerAccents';
 import { cn } from '@/lib/utils';
 
 const iconMap: Record<string, React.ElementType> = {
@@ -33,6 +35,7 @@ export const Skills: React.FC = () => {
     <section id="skills" className="py-20 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          icon={<Cpu size={13} className="text-[#B76E4F]" />}
           eyebrow="CAPABILITIES &amp; TOOLING"
           title="Technologies I work with"
           description="A comprehensive toolkit refined across full-stack engineering, production systems, and modern UI architectures."
@@ -76,8 +79,9 @@ export const Skills: React.FC = () => {
             return (
               <div
                 key={category.id}
-                className="p-6 rounded-2xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="relative p-6 rounded-2xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-xs hover:border-[#B76E4F]/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden group"
               >
+                <CardCornerCrosshairs color="text-[#B76E4F]/20" size={10} />
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-xl bg-[#F2E4D8] text-[#965239] flex items-center justify-center shrink-0 border border-[#EAD8C8]">

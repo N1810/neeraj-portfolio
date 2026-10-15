@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { MapPin, GraduationCap, Compass, Briefcase, Heart } from 'lucide-react';
+import { MapPin, GraduationCap, Compass, Briefcase, Heart, User } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { CardCornerCrosshairs } from '@/components/ui/CornerAccents';
 
@@ -70,6 +70,7 @@ export const About: React.FC = () => {
           {/* Text Content Col */}
           <div className="lg:col-span-7 order-1 lg:order-2">
             <SectionHeading
+              icon={<User size={13} />}
               eyebrow="ABOUT ME"
               title="More than just a developer"
               description="I'm a Full Stack Developer who enjoys building scalable web applications, exploring new technologies, and continuously learning. I enjoy working on challenging projects, collaborating with teams, and turning complex problems into simple, elegant solutions."
@@ -90,8 +91,9 @@ export const About: React.FC = () => {
                 return (
                   <div
                     key={item.label}
-                    className="p-4 rounded-2xl bg-[#FFFCF7] border border-[#EAD8C8] flex items-start gap-3.5 shadow-xs hover:border-[#B76E4F]/40 transition-colors"
+                    className="relative p-4 rounded-2xl bg-[#FFFCF7] border border-[#EAD8C8] flex items-start gap-3.5 shadow-xs hover:border-[#B76E4F]/40 transition-colors overflow-hidden group"
                   >
+                    <CardCornerCrosshairs color="text-[#B76E4F]/20" size={10} />
                     <div className="w-9 h-9 rounded-xl bg-[#F2E4D8] text-[#965239] flex items-center justify-center shrink-0 mt-0.5">
                       <Icon size={18} />
                     </div>

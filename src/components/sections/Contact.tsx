@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, Check, Copy, MessageSquare } from 'lucide-react';
+import { Send, Check, Copy, MessageSquare, Mail } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
 import { SocialLinks } from '@/components/ui/SocialLinks';
+import { CardCornerBrackets } from '@/components/ui/CornerAccents';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -36,13 +37,15 @@ export const Contact: React.FC = () => {
           {/* Left Column: Contact Info & Copy Quick Action */}
           <div className="lg:col-span-5">
             <SectionHeading
+              icon={<Mail size={13} className="text-[#B76E4F]" />}
               eyebrow="GET IN TOUCH"
               title="Have a project in mind?"
               description="Let's build something great together. I'm open to freelance projects, full-time opportunities, collaborations, and interesting technical challenges."
             />
 
             {/* Direct Email Card with One-Click Copy */}
-            <div className="p-6 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-sm mb-6">
+            <div className="relative p-6 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-sm mb-6 overflow-hidden group">
+              <CardCornerBrackets color="text-[#B76E4F]/25" size={14} />
               <span className="text-[11px] font-bold uppercase tracking-wider text-[#965239]">
                 Direct Contact
               </span>
@@ -94,7 +97,8 @@ export const Contact: React.FC = () => {
 
           {/* Right Column: Functional Mailto Message Composer */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-md relative">
+            <div className="p-8 sm:p-10 rounded-3xl bg-[#FFFCF7] border border-[#EAD8C8] shadow-md relative overflow-hidden group">
+              <CardCornerBrackets color="text-[#B76E4F]/25" size={16} />
               <div className="flex items-center gap-2 mb-6 text-[#965239]">
                 <MessageSquare size={18} />
                 <h3 className="font-serif font-bold text-xl text-[#29251F]">
