@@ -1,0 +1,12 @@
+[
+  {
+    "source": "/netlify",
+    "destination": "https://neeraj-portfolio-blue.vercel.app",
+    "permanent": true
+  },
+  {
+    "source": "/old-portfolio",
+    "destination": "https://neeraj-portfolio-blue.vercel.app",
+    "permanent": true
+  }
+]

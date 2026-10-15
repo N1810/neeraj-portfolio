@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withRedirects } from "redirectkit/next";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -14,4 +15,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withRedirects(nextConfig as any);

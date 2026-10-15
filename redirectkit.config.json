@@ -1,0 +1,13 @@
+{
+  "redirectsDir": "redirects",
+  "include": ["**/*.json"],
+  "exclude": ["node_modules/**"],
+  "strict": false,
+  "validation": {
+    "allowChains": false,
+    "allowCycles": false,
+    "allowDuplicates": false,
+    "maxChainLength": 1,
+    "allowExternalDestinations": true
+  }
+}

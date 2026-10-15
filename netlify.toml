@@ -1,0 +1,6 @@
+# Netlify configuration for permanent 301 redirection to Vercel
+[[redirects]]
+  from = "/*"
+  to = "https://neeraj-portfolio-blue.vercel.app/:splat"
+  status = 301
+  force = true
